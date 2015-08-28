@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: pandaX.ma
-//Last modified: Fri, Aug 28, 2015 03:04:00 PM
+//Last modified: Fri, Aug 28, 2015 03:09:04 PM
 //Codeset: 1252
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
@@ -79,6 +79,28 @@ createNode mesh -n "pSphereShape1" -p "pSphere1";
 createNode transform -n "pCube1";
 	setAttr ".t" -type "double3" 0.26901388409988414 1.0562605222954193 -0.062719546511724178 ;
 createNode mesh -n "pCubeShape1" -p "pCube1";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "pCube2";
+	setAttr ".t" -type "double3" -0.0032994597818634119 1.2960146501116783 4.9112483541677898 ;
+createNode mesh -n "pCubeShape2" -p "pCube2";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "pCone1";
+	setAttr ".t" -type "double3" -2.0982296392571413 2.0228682936126678 -3.9235028075429446 ;
+createNode mesh -n "pConeShape1" -p "pCone1";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -419,6 +441,15 @@ createNode polyCube -n "polyCube1";
 	setAttr ".h" 2.1125210445908387;
 	setAttr ".d" 1.9000469213122897;
 	setAttr ".cuv" 4;
+createNode polyCube -n "polyCube2";
+	setAttr ".w" 3.1007127672586829;
+	setAttr ".h" 2.5920293002233565;
+	setAttr ".d" 2.4586314736174955;
+	setAttr ".cuv" 4;
+createNode polyCone -n "polyCone1";
+	setAttr ".r" 2.0957809185221667;
+	setAttr ".h" 4.0457365872253357;
+	setAttr ".cuv" 3;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -431,7 +462,7 @@ select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
 select -ne :initialShadingGroup;
-	setAttr -s 2 ".dsm";
+	setAttr -s 4 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -448,6 +479,8 @@ select -ne :hardwareRenderingGlobals;
 	setAttr ".fprt" yes;
 connectAttr "polySphere1.out" "pSphereShape1.i";
 connectAttr "polyCube1.out" "pCubeShape1.i";
+connectAttr "polyCube2.out" "pCubeShape2.i";
+connectAttr "polyCone1.out" "pConeShape1.i";
 connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
 connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
@@ -462,4 +495,6 @@ connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pSphereShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "pConeShape1.iog" ":initialShadingGroup.dsm" -na;
 // End of pandaX.ma
