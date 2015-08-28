@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
 //Name: pandaX.ma
-//Last modified: Fri, Aug 28, 2015 02:46:05 PM
+//Last modified: Fri, Aug 28, 2015 03:04:00 PM
 //Codeset: 1252
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
@@ -68,6 +68,17 @@ createNode camera -s -n "sideShape" -p "side";
 createNode transform -n "pSphere1";
 	setAttr ".t" -type "double3" -2.8912255790442281 2.236282542403174 -0.56496596984075698 ;
 createNode mesh -n "pSphereShape1" -p "pSphere1";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+createNode transform -n "pCube1";
+	setAttr ".t" -type "double3" 0.26901388409988414 1.0562605222954193 -0.062719546511724178 ;
+createNode mesh -n "pCubeShape1" -p "pCube1";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -403,6 +414,11 @@ createNode script -n "sceneConfigurationScriptNode";
 	setAttr ".b" -type "string" "playbackOptions -min 1 -max 120 -ast 1 -aet 200 ";
 	setAttr ".st" 6;
 createNode polySphere -n "polySphere1";
+createNode polyCube -n "polyCube1";
+	setAttr ".w" 2.4080106055227333;
+	setAttr ".h" 2.1125210445908387;
+	setAttr ".d" 1.9000469213122897;
+	setAttr ".cuv" 4;
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -415,6 +431,7 @@ select -ne :postProcessList1;
 	setAttr -s 2 ".p";
 select -ne :defaultRenderingList1;
 select -ne :initialShadingGroup;
+	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -430,6 +447,7 @@ select -ne :hardwareRenderingGlobals;
 		 0 0 0 0 ;
 	setAttr ".fprt" yes;
 connectAttr "polySphere1.out" "pSphereShape1.i";
+connectAttr "polyCube1.out" "pCubeShape1.i";
 connectAttr ":mentalrayGlobals.msg" ":mentalrayItemsList.glb";
 connectAttr ":miDefaultOptions.msg" ":mentalrayItemsList.opt" -na;
 connectAttr ":miDefaultFramebuffer.msg" ":mentalrayItemsList.fb" -na;
@@ -443,4 +461,5 @@ connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pSphereShape1.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 // End of pandaX.ma
