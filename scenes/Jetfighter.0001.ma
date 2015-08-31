@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
-//Name: Jetfighter.ma
-//Last modified: Sat, Aug 29, 2015 10:27:45 PM
+//Name: Jetfighter.0001.ma
+//Last modified: Sat, Aug 29, 2015 11:56:38 PM
 //Codeset: 1252
 requires maya "2016";
 requires "stereoCamera" "10.0";
@@ -14,13 +14,13 @@ fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "6FB8FE6E-4F33-F40C-EA59-6EB326659AC5";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -2.9772724671456778 0.93503046732167394 0.077844953189668623 ;
-	setAttr ".r" -type "double3" 4.4616472672234737 -444.19999999955678 -3.9341371714117393e-015 ;
+	setAttr ".t" -type "double3" -6.1133163608881311 4.4411823872658251 0.59492884864655426 ;
+	setAttr ".r" -type "double3" -30.338352732779263 -442.19999999955604 -2.3435443878949154e-014 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "3D3D5CE3-4EB5-EBDA-3798-03BD287F8775";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 2.4915333841785783;
+	setAttr ".coi" 6.5577022403749794;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -1493,4 +1493,4 @@ connectAttr "pCubeShape1.wm" "polyExtrudeFace21.mp";
 connectAttr "polyExtrudeFace20.out" "polyTweak11.ip";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
-// End of Jetfighter.ma
+// End of Jetfighter.0001.ma
