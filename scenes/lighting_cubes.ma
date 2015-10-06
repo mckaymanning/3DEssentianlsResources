@@ -1,6 +1,11 @@
 //Maya ASCII 2016 scene
+<<<<<<< HEAD
 //Name: lighting_cubes.ma
 //Last modified: Sun, Oct 04, 2015 12:31:32 AM
+=======
+//Name: pandaX.0001.ma
+//Last modified: Sat, Oct 03, 2015 11:11:24 PM
+>>>>>>> master
 //Codeset: 1252
 requires maya "2016";
 requires "stereoCamera" "10.0";
@@ -428,16 +433,28 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 	rename -uid "8905F859-43D6-1304-1EFA-38AD89F5AC33";
 createNode lightLinker -s -n "lightLinker1";
+<<<<<<< HEAD
 	rename -uid "D1ED78AD-4034-BCA8-92B3-40B8EDE1C31B";
+=======
+	rename -uid "F18A5764-4EAC-C7E8-5713-ACA4AD74391F";
+>>>>>>> master
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".ign";
 	setAttr -s 2 ".slnk";
 createNode displayLayerManager -n "layerManager";
+<<<<<<< HEAD
 	rename -uid "EE28516B-4EE6-D8C2-3548-5E9B0B544DC1";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "DEB20E01-46BB-5E94-B61D-36A847D62790";
 createNode renderLayerManager -n "renderLayerManager";
 	rename -uid "46E3743E-4B79-53B6-2E81-3F9C7BFDEAE1";
+=======
+	rename -uid "D7778922-48B7-4561-9B7A-A2A6E4E0BE8C";
+createNode displayLayer -n "defaultLayer";
+	rename -uid "DEB20E01-46BB-5E94-B61D-36A847D62790";
+createNode renderLayerManager -n "renderLayerManager";
+	rename -uid "74344960-4F77-4C06-F716-27AFC0FC36CD";
+>>>>>>> master
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "5B665ADC-44FB-0153-08AF-C8898D34586C";
 	setAttr ".g" yes;
@@ -567,6 +584,11 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
+<<<<<<< HEAD
+=======
+select -ne :ikSystem;
+	setAttr -s 4 ".sol";
+>>>>>>> master
 connectAttr "polyCube1.out" "pCubeShape1.i";
 connectAttr "polyCube2.out" "pCubeShape2.i";
 connectAttr "polyCube3.out" "pCubeShape3.i";
@@ -597,4 +619,8 @@ connectAttr "ambientLight1.iog" ":defaultLightSet.dsm" -na;
 connectAttr "directionalLight1.iog" ":defaultLightSet.dsm" -na;
 connectAttr "directionalLight2.iog" ":defaultLightSet.dsm" -na;
 connectAttr "pointLight1.iog" ":defaultLightSet.dsm" -na;
+<<<<<<< HEAD
 // End of lighting_cubes.ma
+=======
+// End of pandaX.0001.ma
+>>>>>>> master
