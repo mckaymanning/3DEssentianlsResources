@@ -1,6 +1,6 @@
 //Maya ASCII 2016 scene
 //Name: Little_monster_lighting.ma
-//Last modified: Sat, Oct 17, 2015 07:41:10 PM
+//Last modified: Sat, Oct 17, 2015 11:59:03 PM
 //Codeset: 1252
 requires maya "2016";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
@@ -16,8 +16,8 @@ fileInfo "osv" "Microsoft Windows 7 Home Premium Edition, 64-bit Windows 7 Servi
 fileInfo "license" "student";
 createNode transform -s -n "persp";
 	rename -uid "4224834C-4477-61AE-9876-1183D4D0235D";
-	setAttr ".t" -type "double3" -4.7516435526245555 53.597254349318717 147.53319015665838 ;
-	setAttr ".r" -type "double3" -12.938352585313211 -362.19999999993274 6.9625953804955796e-016 ;
+	setAttr ".t" -type "double3" 2.1983984028863119 66.91304645765257 143.90354086526489 ;
+	setAttr ".r" -type "double3" -18.338352585313192 -359.3999999999308 -8.6973060859379427e-017 ;
 	setAttr ".rp" -type "double3" 8.8817841970012523e-016 0 0 ;
 	setAttr ".rpt" -type "double3" -1.7238484141881861e-015 -6.1629758220391547e-033 
 		-3.0085971071803143e-016 ;
@@ -2159,15 +2159,15 @@ createNode mentalrayOptions -s -n "miDefaultOptions";
 createNode mentalrayFramebuffer -s -n "miDefaultFramebuffer";
 	rename -uid "5D4173E6-4186-9FF6-210B-AE9A6086F4B0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "BA360E2F-480F-443C-E9EE-139EC2A29201";
+	rename -uid "5669ED80-4C6F-9F61-097D-BEA9AC6AAA38";
 	setAttr -s 8 ".lnk";
 	setAttr -s 8 ".slnk";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "BF05902C-470A-0810-C57D-38B043F9B803";
+	rename -uid "8FE48960-473A-AB92-FC61-A1B51B122C54";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "F76BE873-4517-CE96-CF1B-568FA73C53EC";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "039CC06D-407F-9E3F-54D8-62AD9BB2A1E6";
+	rename -uid "C339D2C2-407A-EBAE-50C9-D89D3CB4F43D";
 	setAttr -s 5 ".rlmi[1:4]"  1 2 3 4;
 	setAttr -s 5 ".rlmi";
 createNode renderLayer -n "defaultRenderLayer";
